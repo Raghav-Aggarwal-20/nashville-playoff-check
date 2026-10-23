@@ -1,0 +1,4 @@
+scenario,gf_per_game,ga_per_game,gd_per_game,p_win_90,p_draw_90,p_loss_90
+Actual 2026 results,2.1,0.733,1.367,0.691,0.191,0.118
+Pure xG (all conversion luck),1.725,1.393,0.332,0.454,0.234,0.311
+Projected (regressed by year-to-year r),1.74,1.28,0.46,0.482,0.235,0.282

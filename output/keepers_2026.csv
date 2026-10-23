@@ -1,0 +1,60 @@
+keeper,team,player_id,team_id,is_nashville,minutes_played,shots_faced,saves,save_pct,goals_conceded,xgoals_gk_faced,goals_prevented,gp_p90,rank_goals_prevented
+Matt Turner,NER,Vj58BnDLQ8,19vQ2095K6,False,3038,159,116,0.73,39,51.382,12.382,0.367,1.0
+Brian Schwake,NSH,jYQJagNWqG,vzqoOgNqap,True,2935,102,76,0.745,22,32.86,10.859,0.333,2.0
+Andrew Thomas,SEA,7vQ7rKGYqD,jYQJ19EqGR,False,3018,154,111,0.721,37,46.378,9.378,0.28,3.0
+Brad Stuver,ATX,p6qbeEd350,gpMOLwl5zy,False,2852,179,129,0.721,50,57.791,7.791,0.246,4.0
+Hugo Lloris,LAFC,EGMP4WVMaY,eVq3ya6MWO,False,2711,107,80,0.748,26,32.13,6.13,0.203,5.0
+JT Marcinkowski,LAG,ljqE2keVQx,kaDQ0wRqEv,False,2515,134,93,0.694,38,43.252,5.252,0.188,6.0
+Daniel,SJE,NPqxeGOZQ9,0KPqjA456v,False,1506,60,45,0.75,14,18.929,4.929,0.295,7.0
+Matt Freese,NYC,odMXRoXoqY,Vj58weDM8n,False,2935,138,96,0.696,39,42.907,3.907,0.12,8.0
+James Pantemis,POR,gOMnRzymMw,WBLMvYAQxe,False,3080,176,118,0.67,56,59.386,3.386,0.099,9.0
+Sean Johnson,DCU,9z5kGga5A3,EKXMeX3Q64,False,2946,158,104,0.658,51,54.275,3.275,0.1,10.0
+Drake Callender,MIN,a35rymlLML,kRQand1MKZ,False,2985,146,92,0.63,52,54.931,2.931,0.088,11.0
+Yohei Takaoka,VAN,7VqG07YAQv,lgpMOvnQzy,False,2918,96,62,0.646,29,31.854,2.854,0.088,12.0
+Kristijan Kahlina,CLT,0x5g2Z8ZM7,NPqxKXZ59d,False,3064,177,133,0.751,44,46.454,2.455,0.072,13.0
+Ethan Horvath,NYRB,KAqBjB97qb,a2lqRX2Mr0,False,3038,164,101,0.616,55,57.108,2.108,0.062,14.0
+Earl Edwards Jr.,SJE,0x5gP9Jjq7,0KPqjA456v,False,225,18,16,0.889,2,3.746,1.746,0.699,
+Sebastian Breza,MTL,raMyAW6BMd,APk5LGOMOW,False,1108,49,31,0.633,18,19.676,1.676,0.136,15.0
+Chris Brady,CHI,gOMnlA96qw,X0Oq66zq6D,False,2841,128,80,0.625,42,43.61,1.61,0.051,16.0
+Cabral Carter,LAFC,Vj58WrY3M8,eVq3ya6MWO,False,182,12,9,0.75,2,3.303,1.303,0.644,
+Joe Willis,NSH,gOMn6lylMw,vzqoOgNqap,True,100,3,3,1.0,0,1.234,1.234,1.11,
+Jonathan Sirois,FCD,4wM4JxWpqj,mKAqBBmqbg,False,1109,67,47,0.701,20,21.065,1.065,0.086,17.0
+Jimmy Maurer,HOU,4JMAaogDMK,YgOMngl5wN,False,52,3,3,1.0,0,0.651,0.651,1.127,
+Rocco Rios Novo,MIA,4wM4J01Nqj,zeQZkL1MKw,False,640,28,20,0.714,8,8.646,0.646,0.091,
+Jonathan Bond,HOU,KAqBgD4Qbg,YgOMngl5wN,False,3012,114,76,0.667,35,35.605,0.605,0.018,18.0
+Daniel,FCD,NPqxeGOZQ9,mKAqBBmqbg,False,643,32,22,0.688,8,8.528,0.528,0.074,
+Michael Collodi,FCD,0x5g2mYrM7,mKAqBBmqbg,False,1332,50,31,0.62,18,18.127,0.127,0.009,19.0
+Ben Lundt,STL,gjMNvV70MK,wvq9B9wQWn,False,203,5,3,0.6,2,2.089,0.089,0.04,
+Josh Cohen,CHI,KXMekmrPq6,X0Oq66zq6D,False,200,4,3,0.75,1,1.058,0.058,0.026,
+Mason Stajduhar,RSL,vzqo721jqa,a2lqR4JMr0,False,102,3,1,0.333,2,2.052,0.052,0.046,
+William Yarbrough,TOR,e7Mz9eOGQr,kRQabn8MKZ,False,81,7,6,0.857,1,0.824,-0.176,-0.196,
+Pablo Sisniega,SD,Vj58B64EQ8,zeQZBOzQKw,False,210,17,12,0.706,5,4.784,-0.216,-0.092,
+Patrick Schulte,CLB,kRQaonbo5K,mvzqoLZQap,False,3086,141,90,0.638,47,46.686,-0.314,-0.009,20.0
+Javier Otero,ORL,p6qborPBQ0,jYQJ8EW5GR,False,189,6,4,0.667,1,0.652,-0.348,-0.166,
+Blake Gillingham,HOU,EGMP1vPx5a,YgOMngl5wN,False,27,2,1,0.5,1,0.594,-0.406,-1.352,
+Alex Bono,DCU,ljqEjOZEQx,EKXMeX3Q64,False,98,6,3,0.5,2,1.438,-0.562,-0.516,
+Alec Smir,MIN,gOMn2jBXMw,kRQand1MKZ,False,53,4,2,0.5,2,1.343,-0.657,-1.115,
+Maxime Crépeau,ORL,KPqjonZyQ6,jYQJ8EW5GR,False,2902,192,122,0.635,66,65.212,-0.788,-0.024,21.0
+Tomás Romero,NYC,Oa5wV6LWM1,Vj58weDM8n,False,100,5,3,0.6,2,1.163,-0.837,-0.754,
+Nico Hansen,COL,N6MmeEN0ME,pzeQZ6xQKw,False,1913,74,51,0.689,21,20.145,-0.855,-0.04,22.0
+Damian Las,ATX,jYQJaDwkqG,gpMOLwl5zy,False,204,12,9,0.75,3,2.076,-0.924,-0.407,
+Thomas Hasal,LAFC,gOMnRnO8Mw,eVq3ya6MWO,False,227,8,5,0.625,3,1.866,-1.134,-0.45,
+CJ dos Santos,SD,jYQJz0RGQG,zeQZBOzQKw,False,1412,76,50,0.658,24,22.82,-1.18,-0.075,23.0
+Isaac Boehmer,VAN,kRQaoRPO5K,lgpMOvnQzy,False,135,3,1,0.333,2,0.811,-1.189,-0.792,
+Adam Beaudry,COL,odMXEAde5Y,pzeQZ6xQKw,False,202,6,3,0.5,3,1.589,-1.411,-0.629,
+Duran Michael Ferree,SD,BLMv64wlMx,zeQZBOzQKw,False,1453,75,44,0.587,26,24.218,-1.782,-0.11,24.0
+Angus Gunn,SJE,2vQ1LyOKqr,0KPqjA456v,False,1313,70,43,0.614,25,22.64,-2.36,-0.162,25.0
+Andrew Rick,PHI,KXMe39a6q6,9z5k7Yg5A3,False,211,8,2,0.25,6,3.561,-2.439,-1.04,
+Rafael Cabral,RSL,p6qb4pwM0G,a2lqR4JMr0,False,2936,126,77,0.611,45,42.547,-2.453,-0.075,26.0
+Zack Steffen,COL,ljqEjOpzQx,pzeQZ6xQKw,False,937,41,27,0.659,14,11.492,-2.508,-0.241,27.0
+Stefan Cleveland,SKC,gjMNRZE3MK,Z2vQ1xlqrA,False,2118,128,76,0.594,48,45.444,-2.556,-0.109,28.0
+Evan Louro,CIN,kRQa2L2LMK,NWMWlBK5lz,False,415,24,14,0.583,10,7.432,-2.568,-0.557,
+Novak Mićović,LAG,a35ryXm2ML,kaDQ0wRqEv,False,640,24,10,0.417,13,10.19,-2.81,-0.395,
+Andre Blake,PHI,7VqGmob3Mv,9z5k7Yg5A3,False,2885,100,58,0.58,41,37.979,-3.021,-0.094,29.0
+Roman Bürki,STL,BLMva87Qxe,wvq9B9wQWn,False,2837,114,73,0.64,39,35.749,-3.251,-0.103,30.0
+Lucas Hoyos,ATL,zeQZJYDZQK,KAqBN0Vqbg,False,3057,123,71,0.577,50,46.606,-3.394,-0.1,31.0
+Luka Gavran,TOR,wvq9XwJ35W,kRQabn8MKZ,False,3009,151,96,0.636,51,46.388,-4.612,-0.138,32.0
+John Pulskamp,SKC,gpMOoO8rMz,Z2vQ1xlqrA,False,913,52,26,0.5,25,20.369,-4.631,-0.457,33.0
+Dayne St. Clair,MIA,kRQa2LebMK,zeQZkL1MKw,False,2472,108,64,0.593,41,35.979,-5.021,-0.183,34.0
+Roman Celentano,CIN,gjMNeXBpQK,NWMWlBK5lz,False,2686,139,79,0.568,58,51.331,-6.669,-0.223,35.0
+Thomas Gillier,MTL,4JMAk3z9qK,APk5LGOMOW,False,1951,97,55,0.567,40,31.985,-8.015,-0.37,36.0

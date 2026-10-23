@@ -1,0 +1,56 @@
+{
+  "as_of": "2026-10-21",
+  "games": 30,
+  "points": 67,
+  "xpoints": 46.6,
+  "rank_xpoints": 8,
+  "goal_difference": 41,
+  "xg_difference": 10.0,
+  "conversion_goals": 31.0,
+  "conversion_share": 0.757,
+  "components": {
+    "xG difference (chance creation - chance conceded)": 10.0,
+    "Finishing: goals scored above xG": 11.2,
+    "Opponent shooting: opp. xG that never became on-target danger": 7.7,
+    "Goalkeeping: goals prevented on shots on target": 12.1
+  },
+  "rank_goals_against": 1,
+  "rank_xgoals_against": 4,
+  "rank_xgd_pg": 5,
+  "r_player_xg90": 0.8,
+  "r_player_finishing": 0.04,
+  "r_keeper_gp90": 0.23,
+  "r_team_finishing": 0.04,
+  "r_team_opp_shooting": 0.08,
+  "gd_pg_actual": 1.37,
+  "gd_pg_projected": 0.46,
+  "p_win_90_actual": 0.69,
+  "p_win_90_projected": 0.48,
+  "players": {
+    "Sam Surridge": {
+      "goals": 17.0,
+      "xgoals": 15.71,
+      "pen_goals": 3.0,
+      "np_goals": 14.0,
+      "np_xg": 13.36,
+      "g_minus_xg": 1.29,
+      "prior_g_minus_xg": -0.97
+    },
+    "Hany Mukhtar": {
+      "goals": 16.0,
+      "xgoals": 12.65,
+      "pen_goals": 0.0,
+      "np_goals": 16.0,
+      "np_xg": 12.65,
+      "g_minus_xg": 3.35,
+      "prior_g_minus_xg": 3.66
+    }
+  },
+  "keeper": {
+    "name": "Brian Schwake",
+    "goals_conceded": 22,
+    "xg_faced": 32.9,
+    "goals_prevented": 10.9,
+    "rank": 2
+  }
+}

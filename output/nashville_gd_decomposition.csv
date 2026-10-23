@@ -1,0 +1,5 @@
+component,goals,type,per_game,share_of_gd
+xG difference (chance creation - chance conceded),9.956,repeatable,0.332,0.243
+Finishing: goals scored above xG,11.243,conversion,0.375,0.274
+Opponent shooting: opp. xG that never became on-target danger,7.709,conversion,0.257,0.188
+Goalkeeping: goals prevented on shots on target,12.093,conversion,0.403,0.295
