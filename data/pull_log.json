@@ -1,0 +1,34 @@
+{
+  "players": {
+    "pulled_utc": "2026-10-23T22:31:59+00:00",
+    "rows": 3637
+  },
+  "games_2026": {
+    "pulled_utc": "2026-10-23T22:32:01+00:00",
+    "rows": 451
+  },
+  "team_xg_2026": {
+    "pulled_utc": "2026-10-23T22:32:01+00:00",
+    "rows": 30
+  },
+  "team_xg_2026_pens": {
+    "pulled_utc": "2026-10-23T22:32:01+00:00",
+    "rows": 30
+  },
+  "player_xg_2026_pens": {
+    "pulled_utc": "2026-10-23T22:32:02+00:00",
+    "rows": 24
+  },
+  "team_xg_hist": {
+    "pulled_utc": "2026-10-23T22:32:03+00:00",
+    "rows": 346
+  },
+  "player_xg_hist": {
+    "pulled_utc": "2026-10-23T22:32:07+00:00",
+    "rows": 9348
+  },
+  "keeper_xg_hist": {
+    "pulled_utc": "2026-10-23T22:32:08+00:00",
+    "rows": 754
+  }
+}
