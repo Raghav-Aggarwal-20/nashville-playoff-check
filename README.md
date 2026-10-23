@@ -1,8 +1,8 @@
 # Nashville playoff check: how much of 2026 will travel?
 
-**Question from staff:** Nashville have the best record and the fewest goals conceded in MLS. Before the knockout rounds, how much of that comes from chance creation and chance prevention we can rely on, and how much from finishing and goalkeeping that may cool off?
+**The question:** Nashville have the best record and the fewest goals conceded in MLS. Before the knockout rounds, how much of that comes from chance creation and chance prevention we can rely on, and how much from finishing and goalkeeping that may cool off?
 
-**Answer:** About a quarter. Nashville's +41 goal difference rests on a +10 xG difference. The other +31 came from finishing (+11), opponents missing or misplacing their shots (+8) and Brian Schwake's shot-stopping (+12). Across 13 MLS seasons, finishing over xG has not carried into the next year (r = 0.04) and shot-stopping only weakly (r = 0.23). Nashville should be planned for as a good team, 5th in MLS on xG difference per game, not the dominant one the table shows. On regressed rates, they win about 48% of 90-minute games against an average opponent, not the 69% their actual 2026 rates imply.
+**Answer:** About a quarter (24%). Nashville's +41 goal difference rests on a +10.0 xG difference. The other +31.0 came from finishing (+11.2), opponents missing or misplacing their shots (+7.7) and goalkeeping (+12.1: Brian Schwake +10.9, Joe Willis +1.2). Across 13 MLS seasons, finishing over xG has not carried into the next year (r = 0.04) and shot-stopping only weakly (r = 0.23). Nashville should be planned for as a good team, 5th in MLS on xG difference per game, not the dominant one the table shows. On regressed rates, they win about 48% of 90-minute games against an average opponent, not the 69% their actual 2026 rates imply.
 
 *Data through 2026-10-21: Nashville have played 30 of 34 regular-season games. Rerun after Decision Day (Nov 7) with `python -m src.run --refresh`.*
 
@@ -17,6 +17,7 @@
 | Goals against / xG against | 22 / 41.8 | 1st / 4th |
 | xG difference per game | +0.33 | 5th (Vancouver +1.03) |
 | Schwake goals prevented | 22 conceded on 32.9 keeper xG faced = +10.9 | 2nd (Turner, NE, +12.4) |
+| Team goalkeeping (Schwake + Willis) | 22 conceded on 34.1 keeper xG faced = +12.1 | |
 
 Goals here are ASA shot goals, which leave out own goals (1 for, 1 against). The scoreboard (64 GF, 23 GA) gives the same +41 goal difference.
 
@@ -35,7 +36,7 @@ Goals here are ASA shot goals, which leave out own goals (1 for, 1 against). The
 
 The finishing result holds at stricter filters: r stays between -0.01 and 0.11 when the minimum rises from 20 to 80 shots in both seasons. Keeper r drops to 0.09 for keepers with 2,500+ minutes, so 0.23 is the generous figure for Schwake. Both are in `output/persistence_sensitivity.csv`.
 
-### The three players staff asked about
+### Three players to check
 
 - **Sam Surridge:** 17 goals from 15.7 xG. Three of those goals are penalties, so his non-penalty line is 14 from 13.4. He is finishing about at expectation. His value is shot volume: 0.67 xG per 90, the highest on the team. That is the repeatable part. In his previous three MLS seasons he finished 1.0 goal *below* xG on 184 shots, including 24 goals from 26.8 xG in 2025.
 - **Hany Mukhtar:** 16 goals from 12.7 xG, no penalties, so +3.3. This is the one case with a track record: +3.7 over six prior seasons on about 590 shots. That works out to roughly +0.6 goals per 100 shots, a small edge. It is not +3 a season (2024 was -4.1).
@@ -79,7 +80,7 @@ The finishing result holds at stricter filters: r stays between -0.01 and 0.11 w
 
 `src/checks.py` runs before any output is built and stops the pipeline if a check fails. Current result: 17 pass, 0 fail.
 
-- Nashville's record from ASA game results matches the public MLS standings: 30 games, 20-7-3, 67 points, 64 GF, 23 GA.
+- Nashville's record from ASA game results matches the public MLS standings: 30 games, 20W 7D 3L, 67 points, 64 GF, 23 GA.
 - ASA team points (67) match points computed from the scoreboard.
 - Scoreboard goals minus ASA shot goals = 1 own goal for and 1 against. Goal difference reconciles at +41.
 - Nashville player goals sum to team goals (63).
@@ -89,8 +90,8 @@ The finishing result holds at stricter filters: r stays between -0.01 and 0.11 w
 
 ## Not verified / caveats
 
-- **Your xG figures vs ASA.** Your brief had Surridge at about 13.8 xG and Mukhtar at about 13.0. ASA has 15.7 and 12.7. Different providers' models disagree, and Surridge's 13.8 is close to his ASA non-penalty xG (13.4). This analysis uses ASA throughout.
-- **Public standings** come from a third-party standings table found by web search on 2026-10-23, not from mlssoccer.com directly. Surridge's and Mukhtar's goal totals match the figures in the brief but were not checked against an official MLS page.
+- **Cross-model note.** Sofascore lists Surridge at 13.76 xG and Mukhtar at 12.98; ASA has 15.7 and 12.7. Surridge's Sofascore figure is close to his ASA non-penalty xG (13.4). This analysis uses ASA throughout.
+- **Public standings** come from a third-party standings table found by web search on 2026-10-23, not from mlssoccer.com directly. Surridge's and Mukhtar's goal totals were not checked against an official MLS page.
 - **Opponent shooting includes blocked shots.** Part of the +7.7 may be Nashville defenders blocking shots, which is a skill. ASA's API does not separate blocks.
 - **Roster turnover.** Year-to-year r mixes real decline with roster turnover, so it may understate persistence for a settled squad. Within-season split-half r would be a cleaner test (see below).
 - **Incomplete season.** Four regular-season games remain. Figures will move slightly after the rerun.
