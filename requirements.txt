@@ -1,0 +1,7 @@
+itscalledsoccer==2.3.0
+polars==2.0.0
+pandas==3.1.0
+pyarrow==26.0.0
+numpy==2.5.4
+matplotlib==3.11.2
+requests==2.34.2
