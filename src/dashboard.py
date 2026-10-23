@@ -154,7 +154,24 @@ def _projection_table(d: dict) -> str:
                     f"<td>{r.ga_per_game:.2f}</td><td>{r.gd_per_game:+.2f}</td><td>{_pct(r.p_win_90)}</td>"
                     f"<td>{_pct(r.p_draw_90)}</td><td>{_pct(r.p_loss_90)}</td></tr>")
     return ("<table><thead><tr><th>Per game</th><th>GF</th><th>GA</th><th>GD</th><th>Win</th><th>Draw</th>"
-            "<th>Loss</th></tr></thead><tbody>" + "".join(rows) + "</tbody></table>")
+            "<th>Loss</th></tr></thead><tbody>" + "".join(rows) + "</tbody></table>" + _playoff_takeaways(d))
+
+
+def _playoff_takeaways(d: dict) -> str:
+    team, proj = d["team"], d["proj"].set_index("scenario")
+    n = team[team.is_nashville].iloc[0]
+    best = team.sort_values("xgoal_difference_pg", ascending=False).iloc[0]
+    ga_proj = proj.loc["Projected (regressed by year-to-year r)", "ga_per_game"]
+    names = {"VAN": "Vancouver"}
+    lines = [
+        f"<b>Defence:</b> the structure is real ({_ordinal(int(n.rank_xgoals_against))} in xG against), but "
+        f"goals against should be closer to 1.2 to 1.3 per game (projected {ga_proj:.2f}) than the "
+        f"{n.goals_against_pg:.2f} so far.",
+        f"<b>Against {names.get(best.team, best.team)}</b> ({best.xgoal_difference_pg:+.2f} xG difference per "
+        "game), Nashville would not be favourites on chance quality.",
+        "<b>Single games are short samples.</b> Variance can still help, but planning should not assume it.",
+    ]
+    return "<ul class='notes takeaways'>" + "".join(f"<li>{x}</li>" for x in lines) + "</ul>"
 
 
 def _sofascore(d: dict) -> str:
@@ -193,8 +210,26 @@ def _sofascore(d: dict) -> str:
     cmp_rows = "".join(f"<tr><th>{a}</th><td>{b}</td><td>{c}</td></tr>" for a, b, c in rows)
     ext = "".join(f"<div class='mini'><div class='mini-v'>{b}</div><div class='mini-l'>{a}</div></div>"
                   for a, b in extra)
+    sur_g, sur_xgot = v["Sam Surridge", "goals"], v["Sam Surridge", "xgot"]
+    muk_g, muk_xgot = v["Hany Mukhtar", "goals"], v["Hany Mukhtar", "xgot"]
+    takeaways = [
+        f"<b>Errors:</b> {f(v['Nashville SC', 'errors_leading_to_shot'])} Nashville errors led to shots and "
+        f"{f(v['Nashville SC', 'errors_leading_to_goal'])} to goals. That run is unlikely to last.",
+        f"<b>Penalties:</b> Schwake saved {f(v['Brian Schwake', 'penalties_saved'])} of the "
+        f"{f(v['Brian Schwake', 'penalties_faced'])} penalties he faced, the least repeatable part of his record.",
+        f"<b>Surridge:</b> {f(sur_g)} goals against {f(sur_xgot)} xGOT. His goals come from shot placement, "
+        "not keeper mistakes.",
+        f"<b>Mukhtar:</b> {f(muk_g)} goals against {f(muk_xgot)} xGOT, about {muk_g - muk_xgot:+.1f} above "
+        "what his placement explains, the part most likely to even out.",
+        f"<b>Schwake off the line:</b> {f(v['Brian Schwake', 'high_claims'])} high claims, "
+        f"{f(v['Brian Schwake', 'crosses_not_claimed'])} crosses not claimed and "
+        f"{f(v['Brian Schwake', 'successful_run_outs'])}{runouts_of} run-outs. Goals prevented does not "
+        "measure this value.",
+    ]
+    tk = "".join(f"<li>{t}</li>" for t in takeaways)
     return (f"<table class='cmp'><thead><tr><th></th><th>ASA</th><th>Sofascore</th></tr></thead>"
-            f"<tbody>{cmp_rows}</tbody></table><div class='minis'>{ext}</div>"
+            f"<tbody>{cmp_rows}</tbody></table><ul class='notes takeaways'>{tk}</ul>"
+            f"<div class='minis'>{ext}</div>"
             f"<p class='muted'>Hand-entered from Sofascore on {html.escape(str(s.captured.max()))}. Context only: "
             "none of these figures enters any calculation. Goals conceded differ because Sofascore counts the "
             "own goal and ASA's xG tables count shot goals only.</p>")
@@ -247,6 +282,7 @@ border:1px solid var(--border);border-radius:999px;padding:1px 9px;margin-left:8
 .muted{color:var(--muted);font-size:13px}
 .notes{color:var(--ink2);font-size:13.5px}
 .notes li{margin:0 0 6px}
+.takeaways{padding-left:18px;margin:4px 0 10px}
 footer{margin-top:28px;color:var(--muted);font-size:13px;border-top:1px solid var(--grid);padding-top:14px}
 a{color:var(--blue)}
 @media (max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.kpi:last-child{grid-column:span 2}}
