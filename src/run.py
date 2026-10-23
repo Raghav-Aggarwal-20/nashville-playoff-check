@@ -10,7 +10,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from src import analysis, charts
+from src import analysis, charts, sofascore
 from src.checks import run_checks
 from src.fetch import DATA, ROOT, fetch
 
@@ -66,6 +66,7 @@ def main(refresh: bool = False):
     key = _key_numbers(n, parts, rtab, proj, sp, sk, as_of)
     (OUT / "key_numbers.json").write_text(json.dumps(key, indent=2))
     (OUT / "summary.md").write_text(_summary(key, check_notes, rtab, proj))
+    sofascore.write_into_readme(sofascore.section(t, keepers))
     print("\n" + (OUT / "summary.md").read_text())
 
 

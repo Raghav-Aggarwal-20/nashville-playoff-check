@@ -42,6 +42,25 @@ The finishing result holds at stricter filters: r stays between -0.01 and 0.11 w
 - **Hany Mukhtar:** 16 goals from 12.7 xG, no penalties, so +3.3. This is the one case with a track record: +3.7 over six prior seasons on about 590 shots. That works out to roughly +0.6 goals per 100 shots, a small edge. It is not +3 a season (2024 was -4.1).
 - **Brian Schwake:** +10.9 goals prevented, 2nd in MLS. This is his first season as Nashville's starter, and ASA has no prior MLS season for him. That leaves 102 shots on target as the whole sample. A keeper's season this far above average usually lands much closer to average the next year.
 
+<!-- sofascore:start -->
+## Second opinion: Sofascore
+
+*Sofascore context, hand-entered from Sofascore's MLS 2026 pages on 2026-10-23 (`data/sofascore_manual.csv`). None of it enters any calculation above. This section is regenerated from that file on every run.*
+
+- **Two models agree on Schwake.** ASA has him at +10.9 goals prevented; Sofascore at +8.96. Different models, same verdict: elite shot-stopping this season.
+- **Penalties.** He saved 2 of 4. ASA values a penalty at 0.78 xG (3.13 xG on the 4 penalties Nashville faced), so 2 saves from 4 is worth about +1.1 goals against an average keeper (10% of his +10.9 ASA total). Penalty saves are the least repeatable part of a keeper's record: a handful of kicks, mostly decided by a guess.
+- **Errors.** Nashville made 20 errors that led to a shot and 0 that led to a goal. That many errors without a goal conceded is not something to plan on repeating.
+- **Surridge: 17 goals vs 16.79 xGOT.** xGOT (expected goals on target) adds shot placement to xG. His 13.76 xG becomes 16.79 once placement is counted, leaving only +0.2 unexplained. His goals come from where he puts the ball, not from keeper mistakes.
+- **Mukhtar: 16 goals vs 13.78 xGOT,** about +2.2 beyond placement (his placement adds only +0.8 to 12.98 xG). Goals above xGOT are shots keepers should have saved, the part most likely to even out.
+- **Schwake beyond shot-stopping:** 20 high claims, 0 crosses not claimed, 11/11 successful run-outs. That is value goals prevented doesn't capture: it only measures shots on target, not the shots that never happen because he took the cross.
+- **Woodwork.** Nashville hit the post or bar 12 times. xG already counts those chances, and they went in the books as misses, so the finishing term (goals minus xG) already reflects them.
+
+Where the two sources differ, it is definitional:
+
+- **Goals conceded:** Sofascore has Schwake on 23; ASA on 22. Sofascore matches the scoreboard, which includes the one own goal; ASA's xG tables count shot goals only.
+- **Minutes:** Sofascore 2610, exactly 90 x his 29 starts; ASA 2935, which includes stoppage time.
+<!-- sofascore:end -->
+
 ## What this means for the playoffs
 
 | Scenario (per game) | GF | GA | GD | Win in 90 vs average opponent |
@@ -74,7 +93,7 @@ The finishing result holds at stricter filters: r stays between -0.01 and 0.11 w
 
 - **American Soccer Analysis**, through the [`itscalledsoccer`](https://github.com/American-Soccer-Analysis/itscalledsoccer-python) package (v2.3.0). Pulls are cached as parquet in `data/`, and `data/pull_log.json` records the time and row count of each pull.
 - `get_players()` in v2.3.0 crashes when merging pages whose columns differ. The player-name lookup therefore calls the same ASA REST endpoint directly (`src/fetch.py`).
-- **Sofascore** figures are used only as context. They come from a hand-entered file (`data/sofascore_manual.csv`, template in `data/sofascore_manual.template.csv`), never enter any calculation, and appear in `output/summary.md` labelled as Sofascore. Nothing is scraped.
+- **Sofascore** figures are used only as context. They come from a hand-entered file (`data/sofascore_manual.csv`, template in `data/sofascore_manual.template.csv`), never enter any calculation, and appear in the "Second opinion: Sofascore" section above (written by `src/sofascore.py` on every run) and in `output/summary.md`. Nothing is scraped.
 
 ## Sanity checks
 
@@ -101,7 +120,7 @@ The finishing result holds at stricter filters: r stays between -0.01 and 0.11 w
 - **Even game state split** (ASA `even_game_state=True`): does Nashville's chance quality hold when level, or is it inflated by protecting leads?
 - **Within-season split-half persistence:** odd vs even games for 2026 Nashville players. It removes roster turnover from the persistence estimate.
 - **Opponent-specific preview** for the actual first-round opponent once seeding is set: both teams' xG for and against, set-piece share, and the same projection.
-- **Cross-model check** against Sofascore's xG and goals prevented once the manual file is filled in.
+- **Game-by-game cross-model check:** ASA xG vs Sofascore xG and xGOT per match, to see where the two models disagree most.
 
 ## Rerun
 
