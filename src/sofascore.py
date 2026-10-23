@@ -56,9 +56,8 @@ def section(t: dict, keepers: pd.DataFrame) -> str:
         START,
         "## Second opinion: Sofascore",
         "",
-        f"*Sofascore context, hand-entered from Sofascore's MLS 2026 pages on {captured} "
-        f"(`data/{CSV.name}`). None of it enters any calculation above. This section is regenerated "
-        "from that file on every run.*",
+        f"*Context from Sofascore's MLS 2026 pages, read manually on {captured} (`data/{CSV.name}`). "
+        "These figures do not enter any calculation.*",
         "",
         f"- **Two models agree on Schwake.** ASA has him at +{sch.goals_prevented:.1f} goals prevented; "
         f"Sofascore at +{_n(s('Brian Schwake', 'goals_prevented'))}. Different models, same verdict: elite "

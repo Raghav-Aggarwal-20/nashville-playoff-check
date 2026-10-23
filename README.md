@@ -1,10 +1,12 @@
 # Nashville playoff check: how much of 2026 will travel?
 
-**The question:** Nashville have the best record and the fewest goals conceded in MLS. Before the knockout rounds, how much of that comes from chance creation and chance prevention we can rely on, and how much from finishing and goalkeeping that may cool off?
+**The question:** Nashville SC lead MLS with the best record and the fewest goals conceded. Going into the playoffs, how much of that comes from chance creation and chance prevention that should hold up, and how much from finishing and goalkeeping that may cool off?
 
-**Answer:** About a quarter (24%). Nashville's +41 goal difference rests on a +10.0 xG difference. The other +31.0 came from finishing (+11.2), opponents missing or misplacing their shots (+7.7) and goalkeeping (+12.1: Brian Schwake +10.9, Joe Willis +1.2). Across 13 MLS seasons, finishing over xG has not carried into the next year (r = 0.04) and shot-stopping only weakly (r = 0.23). Nashville should be planned for as a good team, 5th in MLS on xG difference per game, not the dominant one the table shows. On regressed rates, they win about 48% of 90-minute games against an average opponent, not the 69% their actual 2026 rates imply.
+**The answer:** About a quarter is repeatable. Nashville's +41 goal difference rests on a +10.0 xG difference; the other +31.0 came from finishing (+11.2), opponents missing or misplacing their shots (+7.7) and goalkeeping (+12, of which Schwake +10.9). Across 13 MLS seasons, finishing above xG has not carried into the next season (r = 0.04) and shot-stopping only weakly (r = 0.23). On chance quality Nashville are a good team, 5th in xG difference per game, rather than the dominant one the table shows: on regressed rates they win about 48% of 90-minute games against an average opponent, not 69%.
 
-*Data through 2026-10-21: Nashville have played 30 of 34 regular-season games. Rerun after Decision Day (Nov 7) with `python -m src.run --refresh`.*
+**Interactive dashboard:** [raghav-aggarwal-20.github.io/nashville-playoff-check](https://raghav-aggarwal-20.github.io/nashville-playoff-check/)
+
+*Data through 2026-10-21 (30 of 34 regular-season games). Source: American Soccer Analysis.*
 
 ![Goal difference waterfall](output/01_goal_difference_waterfall.png)
 
@@ -12,40 +14,39 @@
 
 | | Nashville 2026 | MLS rank |
 |---|---|---|
-| Points / expected points (xPoints) | 67 / 46.6 (+20.4) | 1st / 8th |
+| Points / expected points | 67 / 46.6 (+20.4) | 1st / 8th |
 | Goals for / xG for | 63 / 51.8 | 2nd / 12th |
 | Goals against / xG against | 22 / 41.8 | 1st / 4th |
 | xG difference per game | +0.33 | 5th (Vancouver +1.03) |
-| Schwake goals prevented | 22 conceded on 32.9 keeper xG faced = +10.9 | 2nd (Turner, NE, +12.4) |
-| Team goalkeeping (Schwake + Willis) | 22 conceded on 34.1 keeper xG faced = +12.1 | |
+| Schwake goals prevented | 22 conceded on 32.9 keeper xG faced = +10.9 | 2nd (Matt Turner, New England, +12.4) |
 
-Goals here are ASA shot goals, which leave out own goals (1 for, 1 against). The scoreboard (64 GF, 23 GA) gives the same +41 goal difference.
+Schwake's +10.9 is his own figure; team goalkeeping (+12.1) also includes Joe Willis's +1.2. Goals are shot goals as counted by ASA, so own goals (1 for, 1 against) are excluded; the scoreboard (64 scored, 23 conceded) gives the same +41.
 
 ## Does it repeat?
 
 ![Year-to-year persistence](output/02_does_it_repeat.png)
 
-| Year N vs year N+1, MLS 2013-2025 | r | 95% CI | pairs |
+| Season N vs season N+1, MLS 2013-2025 | r | 95% CI | Pairs |
 |---|---|---|---|
 | Player xG per 90 (control) | 0.80 | 0.78 to 0.82 | 1,045 |
 | Player finishing (goals minus xG) | 0.04 | -0.03 to 0.10 | 1,045 |
 | Keeper goals prevented per 90 | 0.23 | 0.09 to 0.37 | 179 |
 | Team xG difference per game (control) | 0.40 | 0.30 to 0.49 | 285 |
 | Team finishing per game | 0.04 | -0.08 to 0.16 | 285 |
-| Team opponent-shooting per game | 0.08 | -0.04 to 0.19 | 285 |
+| Team opponent shooting per game | 0.08 | -0.04 to 0.19 | 285 |
 
-The finishing result holds at stricter filters: r stays between -0.01 and 0.11 when the minimum rises from 20 to 80 shots in both seasons. Keeper r drops to 0.09 for keepers with 2,500+ minutes, so 0.23 is the generous figure for Schwake. Both are in `output/persistence_sensitivity.csv`.
+Creating chances repeats; converting them does not. The finishing result holds under stricter filters (r between -0.01 and 0.11 from 20 to 80 shots in both seasons). Keeper r falls to 0.09 for keepers with 2,500+ minutes, so 0.23 is the generous figure for Schwake.
 
-### Three players to check
+## Three players to check
 
-- **Sam Surridge:** 17 goals from 15.7 xG. Three of those goals are penalties, so his non-penalty line is 14 from 13.4. He is finishing about at expectation. His value is shot volume: 0.67 xG per 90, the highest on the team. That is the repeatable part. In his previous three MLS seasons he finished 1.0 goal *below* xG on 184 shots, including 24 goals from 26.8 xG in 2025.
-- **Hany Mukhtar:** 16 goals from 12.7 xG, no penalties, so +3.3. This is the one case with a track record: +3.7 over six prior seasons on about 590 shots. That works out to roughly +0.6 goals per 100 shots, a small edge. It is not +3 a season (2024 was -4.1).
-- **Brian Schwake:** +10.9 goals prevented, 2nd in MLS. This is his first season as Nashville's starter, and ASA has no prior MLS season for him. That leaves 102 shots on target as the whole sample. A keeper's season this far above average usually lands much closer to average the next year.
+- **Sam Surridge:** 17 goals from 15.7 xG. Three are penalties, so his non-penalty line is 14 from 13.4, close to expectation. His repeatable value is volume: 0.67 xG per 90, the highest on the team. Over his previous three MLS seasons he finished 1.0 goal below xG on 184 shots, including 24 goals from 26.8 xG in 2025.
+- **Hany Mukhtar:** 16 goals from 12.7 xG with no penalties, +3.3. He has a modest track record: +3.7 over six prior seasons on about 590 shots, roughly +0.6 per 100 shots, with swings from +4.2 (2021) to -4.1 (2024). Expect something nearer his career rate than +3 a season.
+- **Brian Schwake:** +10.9 goals prevented, 2nd in MLS, in his first season as Nashville's starter and with no prior MLS season in ASA's data. The sample is 102 shots on target. Keepers this far above average usually land much closer to average the following season.
 
 <!-- sofascore:start -->
 ## Second opinion: Sofascore
 
-*Sofascore context, hand-entered from Sofascore's MLS 2026 pages on 2026-10-23 (`data/sofascore_manual.csv`). None of it enters any calculation above. This section is regenerated from that file on every run.*
+*Context from Sofascore's MLS 2026 pages, read manually on 2026-10-23 (`data/sofascore_manual.csv`). These figures do not enter any calculation.*
 
 - **Two models agree on Schwake.** ASA has him at +10.9 goals prevented; Sofascore at +8.96. Different models, same verdict: elite shot-stopping this season.
 - **Penalties.** He saved 2 of 4. ASA values a penalty at 0.78 xG (3.13 xG on the 4 penalties Nashville faced), so 2 saves from 4 is worth about +1.1 goals against an average keeper (10% of his +10.9 ASA total). Penalty saves are the least repeatable part of a keeper's record: a handful of kicks, mostly decided by a guess.
@@ -61,7 +62,7 @@ Where the two sources differ, it is definitional:
 - **Minutes:** Sofascore 2610, exactly 90 x his 29 starts; ASA 2935, which includes stoppage time.
 <!-- sofascore:end -->
 
-## What this means for the playoffs
+## What it means for the playoffs
 
 | Scenario (per game) | GF | GA | GD | Win in 90 vs average opponent |
 |---|---|---|---|---|
@@ -69,79 +70,43 @@ Where the two sources differ, it is definitional:
 | Pure xG | 1.73 | 1.39 | +0.33 | 45% |
 | Projected (each conversion term kept at its r) | 1.74 | 1.28 | +0.46 | 48% |
 
-- The defensive structure is real. Nashville are 4th in xG against. But 22 conceded is a goalkeeping and opponent-finishing number, not a structure number. Expect more like 1.2 to 1.3 goals against per game.
-- Against Vancouver (+1.03 xG difference per game), Nashville would not be favourites on chance quality.
-- Single-elimination games are short samples, and variance can still go Nashville's way. Planning should assume it won't.
+- **Defensive structure is real but not elite.** Nashville are 4th in xG against. The 22 goals conceded reflect goalkeeping and opponent finishing more than structure; plan for 1.2 to 1.3 goals against per game.
+- **The attack runs on volume.** Surridge's chance volume should hold; finishing above xG across the squad probably will not.
+- **Against the best chance-quality sides** (Vancouver, +1.03 xG difference per game), Nashville would not be favourites on the underlying numbers.
+- **Knockout games are short samples.** Variance can still favour Nashville, but preparation should not rely on it.
 
 ![League context](output/03_league_context.png)
 
 ## Method
 
-1. **Decomposition.** Goal difference = xG difference + finishing + opponent shooting + goalkeeping. This is an exact identity, built from two xG measures:
-   - **Pre-shot xG (ASA `xgoals`)** values every shot by where it was taken and how it came about.
-   - **Keeper xG faced (ASA `xgoals_gk_faced`)** values only shots on target, using where they were placed.
+1. **Decomposition.** Goal difference = xG difference + finishing + opponent shooting + goalkeeping, an exact identity built from two xG measures. ASA's pre-shot xG values every shot by location and situation; its keeper xG faced values only shots on target, by placement. Opponent xG minus keeper xG faced is chance quality opponents lost to misses, blocks and poor placement. Keeper xG faced minus goals conceded is the keepers' contribution.
+2. **Persistence.** Each measure is correlated between consecutive regular seasons, 2013 to 2025. Players: 900+ minutes and 20+ shots in both seasons. Keepers: 1,500+ minutes. 95% intervals use the Fisher z-transform.
+3. **Projection.** Each conversion term is multiplied by its r and added back to xG (team r for finishing and opponent shooting; keeper r for goalkeeping). Win, draw and loss probabilities treat goals for and against as independent Poisson draws against an average-strength opponent.
 
-   Opponent xG minus keeper xG faced is chance quality the opponent lost to misses, blocks and poor placement. Keeper xG faced minus goals conceded is the keeper's contribution.
-2. **Persistence.** Each metric is correlated between consecutive regular seasons, 2013 to 2025. The 2025 to 2026 pairs are excluded because 2026 is not finished. Player filters: 900+ minutes and 20+ shots in both seasons. Keeper filter: 1,500+ minutes. 95% CIs use the Fisher z-transform.
-3. **Projection.** Each conversion term is multiplied by its r and added back to xG:
-   - team r for finishing and opponent shooting
-   - keeper r for goalkeeping, since the keeper is the same player
+## Data and checks
 
-   The Poisson win/draw/loss line treats goals for and against as independent Poisson draws against an average-strength opponent. It ignores home advantage and extra time.
+- **American Soccer Analysis** via [`itscalledsoccer`](https://github.com/American-Soccer-Analysis/itscalledsoccer-python) 2.3.0, cached as parquet in `data/` with pull times in `data/pull_log.json`. Player names come from the same ASA API directly, because `get_players()` in 2.3.0 fails on mismatched pages.
+- **Sofascore** figures were read manually into `data/sofascore_manual.csv` and are used for context only.
+- **17 sanity checks** run before any output is built and stop the pipeline on failure. They confirm the record (20W 7D 3L, 67 points, 64 scored, 23 conceded) against public standings, reconcile own goals, check that player goals sum to team goals, and check that keeper goals conceded match team goals against in all 346 MLS team-seasons since 2013.
 
-## Data
+## Caveats
 
-- **American Soccer Analysis**, through the [`itscalledsoccer`](https://github.com/American-Soccer-Analysis/itscalledsoccer-python) package (v2.3.0). Pulls are cached as parquet in `data/`, and `data/pull_log.json` records the time and row count of each pull.
-- `get_players()` in v2.3.0 crashes when merging pages whose columns differ. The player-name lookup therefore calls the same ASA REST endpoint directly (`src/fetch.py`).
-- **Sofascore** figures are used only as context. They come from a hand-entered file (`data/sofascore_manual.csv`, template in `data/sofascore_manual.template.csv`), never enter any calculation, and appear in the "Second opinion: Sofascore" section above (written by `src/sofascore.py` on every run) and in `output/summary.md`. Nothing is scraped.
-
-## Sanity checks
-
-`src/checks.py` runs before any output is built and stops the pipeline if a check fails. Current result: 17 pass, 0 fail.
-
-- Nashville's record from ASA game results matches the public MLS standings: 30 games, 20W 7D 3L, 67 points, 64 GF, 23 GA.
-- ASA team points (67) match points computed from the scoreboard.
-- Scoreboard goals minus ASA shot goals = 1 own goal for and 1 against. Goal difference reconciles at +41.
-- Nashville player goals sum to team goals (63).
-- Player xG sums to 53.5 against team xG of 51.8 (+3.4%; ASA's team xG is not a plain sum of shot xG). The check allows up to 5%.
-- Keeper goals conceded equal team goals against in all 346 MLS team-seasons from 2013 to 2026.
-- Every player-season row has a name.
-
-## Not verified / caveats
-
-- **Cross-model note.** Sofascore lists Surridge at 13.76 xG and Mukhtar at 12.98; ASA has 15.7 and 12.7. Surridge's Sofascore figure is close to his ASA non-penalty xG (13.4). This analysis uses ASA throughout.
-- **Public standings** come from a third-party standings table found by web search on 2026-10-23, not from mlssoccer.com directly. Surridge's and Mukhtar's goal totals were not checked against an official MLS page.
-- **Opponent shooting includes blocked shots.** Part of the +7.7 may be Nashville defenders blocking shots, which is a skill. ASA's API does not separate blocks.
-- **Roster turnover.** Year-to-year r mixes real decline with roster turnover, so it may understate persistence for a settled squad. Within-season split-half r would be a cleaner test (see below).
-- **Incomplete season.** Four regular-season games remain. Figures will move slightly after the rerun.
-
-## Worth adding (not built)
-
-- **Even game state split** (ASA `even_game_state=True`): does Nashville's chance quality hold when level, or is it inflated by protecting leads?
-- **Within-season split-half persistence:** odd vs even games for 2026 Nashville players. It removes roster turnover from the persistence estimate.
-- **Opponent-specific preview** for the actual first-round opponent once seeding is set: both teams' xG for and against, set-piece share, and the same projection.
-- **Game-by-game cross-model check:** ASA xG vs Sofascore xG and xGOT per match, to see where the two models disagree most.
+- **Standings source.** Public standings were checked against a third-party table, not mlssoccer.com. Surridge's (17) and Mukhtar's (16) goal totals match Sofascore.
+- **Blocked shots.** Opponent shooting includes blocked shots, so part of the +7.7 may be Nashville defending rather than opponent error.
+- **Roster turnover.** Year-to-year r includes roster turnover and may understate persistence for a settled squad.
+- **Model differences.** Different providers' xG models differ; see the Sofascore section.
+- **Incomplete season.** Four regular-season games remain, and figures will move slightly after Decision Day.
 
 ## Rerun
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
-.venv/bin/python -m src.run            # uses the cached data in data/
-.venv/bin/python -m src.run --refresh  # re-pulls from ASA (needed after new matches)
+.venv/bin/python -m src.run            # uses cached data
+.venv/bin/python -m src.run --refresh  # re-pulls from ASA after new matches
 ```
 
-Outputs in `output/`:
+One command rebuilds the checks, the CSVs in `output/` (team, player, keeper, persistence and projection tables), the three charts, the Sofascore section of this README and the dashboard in `docs/`. After a refresh, update `PUBLIC` in `src/checks.py` to the latest standings.
 
-| File | Contents |
-|---|---|
-| `team_2026.csv` | all 30 teams: decomposition, per-game rates, ranks |
-| `players_2026.csv` | Nashville players: penalty split, prior-season finishing |
-| `keepers_2026.csv` | all MLS keepers |
-| `persistence_pairs.csv`, `persistence_summary.csv`, `persistence_sensitivity.csv` | year N vs N+1 pairs and their correlations |
-| `projection.csv` | the three scenarios above |
-| `nashville_gd_decomposition.csv` | Nashville's goal difference split |
-| `spotlight_player_history.csv` | Surridge and Mukhtar season by season |
-| `key_numbers.json` | headline figures |
-| `summary.md` | auto-generated summary, regenerated on every run |
+---
 
-After a refresh, update `PUBLIC` in `src/checks.py` to the new standings, or the checks will fail on purpose.
+Analysis by Raghav Aggarwal · [GitHub](https://github.com/Raghav-Aggarwal-20) · [LinkedIn](https://www.linkedin.com/in/raghav-aggarwal-a4b5721bb)
