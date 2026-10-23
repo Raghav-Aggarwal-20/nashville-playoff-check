@@ -132,7 +132,7 @@ def _answer(d: dict) -> str:
     g = parts.set_index(parts.component.str.split(":").str[0]).goals
     xgd_rank = _ordinal(k["rank_xgd_pg"])
     return (
-        f"<p>About a quarter. Nashville's <b>+{k['goal_difference']}</b> goal difference rests on a "
+        f"<p>About a quarter comes from chance quality, the part that tends to hold up. Nashville's <b>+{k['goal_difference']}</b> goal difference rests on a "
         f"<b>{_signed(g['xG difference (chance creation - chance conceded)'])}</b> xG difference. The other "
         f"<b>{_signed(k['conversion_goals'])}</b> came from finishing ({_signed(g['Finishing'])}), opponents "
         f"missing or misplacing shots ({_signed(g['Opponent shooting'])}) and goalkeeping "

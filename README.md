@@ -2,7 +2,7 @@
 
 **The question:** Nashville SC lead MLS with the best record and the fewest goals conceded. Going into the playoffs, how much of that comes from chance creation and chance prevention that should hold up, and how much from finishing and goalkeeping that may cool off?
 
-**The answer:** About a quarter is repeatable. Nashville's +41 goal difference rests on a +10.0 xG difference; the other +31.0 came from finishing (+11.2), opponents missing or misplacing their shots (+7.7) and goalkeeping (+12, of which Schwake +10.9). Across 13 MLS seasons, finishing above xG has not carried into the next season (r = 0.04) and shot-stopping only weakly (r = 0.23). On chance quality Nashville are a good team, 5th in xG difference per game, rather than the dominant one the table shows: on regressed rates they win about 48% of 90-minute games against an average opponent, not 69%.
+**The answer:** About a quarter comes from chance quality, the part that tends to hold up. Nashville's +41 goal difference rests on a +10.0 xG difference; the other +31.0 came from finishing (+11.2), opponents missing or misplacing their shots (+7.7) and goalkeeping (+12.1, of which Schwake +10.9). Across 13 MLS seasons, finishing above xG has not carried into the next season (r = 0.04) and shot-stopping only weakly (r = 0.23). On chance quality Nashville are a good team, 5th in xG difference per game, rather than the dominant one the table shows. On regressed rates they win about 48% of 90-minute games against an average opponent, not 69%.
 
 **Interactive dashboard:** [raghav-aggarwal-20.github.io/nashville-playoff-check](https://raghav-aggarwal-20.github.io/nashville-playoff-check/)
 
@@ -97,15 +97,16 @@ Where the two sources differ, it is definitional:
 - **Model differences.** Different providers' xG models differ; see the Sofascore section.
 - **Incomplete season.** Four regular-season games remain, and figures will move slightly after Decision Day.
 
-## Rerun
+<details>
+<summary>Reproduce the analysis</summary>
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
-.venv/bin/python -m src.run            # uses cached data
-.venv/bin/python -m src.run --refresh  # re-pulls from ASA after new matches
+.venv/bin/python -m src.run
 ```
 
-One command rebuilds the checks, the CSVs in `output/` (team, player, keeper, persistence and projection tables), the three charts, the Sofascore section of this README and the dashboard in `docs/`. After a refresh, update `PUBLIC` in `src/checks.py` to the latest standings.
+One command runs the sanity checks and rebuilds every table in `output/`, the charts and the dashboard from cached ASA data.
+</details>
 
 ---
 
