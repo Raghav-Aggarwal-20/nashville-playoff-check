@@ -79,6 +79,9 @@ PULLS = {
     "team_xg_hist": lambda asa: asa.get_team_xgoals(**_base(season_name=HISTORY, split_by_seasons=True)),
     "player_xg_hist": lambda asa: asa.get_player_xgoals(**_base(season_name=HISTORY, split_by_seasons=True)),
     "keeper_xg_hist": lambda asa: asa.get_goalkeeper_xgoals(**_base(season_name=HISTORY, split_by_seasons=True)),
+    # same, but one row per keeper-team-season so keeper xG faced can be summed to team level
+    "keeper_xg_hist_by_team": lambda asa: asa.get_goalkeeper_xgoals(
+        **_base(season_name=HISTORY, split_by_seasons=True, split_by_teams=True)),
 }
 
 
